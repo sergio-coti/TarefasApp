@@ -1,0 +1,54 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sdf
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.ldb
+*.aps
+*.idb
+*.pdb
+*.dll
+*.exe
+*.log
+*.svclog
+*.iobj
+*.ipdb
+*.pch
+*.mdb
+*.res
+*.exp
+*.manifest
+*.pch
+*.vsp
+*.vspx
+*.snk
