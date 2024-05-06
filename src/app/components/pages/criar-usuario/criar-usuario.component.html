@@ -1,0 +1,86 @@
+<div class="mb-3">
+    <h4>Criação de conta de usuário</h4>
+    <p>Preencha os campos para cadastrar sua conta de acesso.</p>
+</div>
+
+<h5 class="text-success">
+    {{mensagemSucesso}}
+</h5>
+
+<h5 class="text-danger">
+    {{mensagemErro}}
+</h5>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- linha -->
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Nome do usuário:</label>
+            <input type="text" class="form-control" 
+                formControlName="nome"
+                placeholder="Digite seu nome aqui."/>
+            <div class="text-danger" *ngIf="f['nome'].touched && f['nome'].invalid">
+                <span *ngIf="f['nome'].errors && f['nome'].errors['required']">
+                    Por favor, informe o nome do usuário
+                </span>
+                <span *ngIf="f['nome'].errors && f['nome'].errors['minlength']">
+                    Por favor, informe no mínimo 8 caracteres.
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>Email de acesso:</label>
+            <input type="text" class="form-control" 
+                formControlName="email"
+                placeholder="Digite seu email aqui."/>
+            <div class="text-danger" *ngIf="f['email'].touched && f['email'].invalid">
+                <span *ngIf="f['email'].errors && f['email'].errors['required']">
+                    Por favor, informe o email do usuário.
+                </span>
+                <span *ngIf="f['email'].errors && f['email'].errors['email']">
+                    Por favor, informe um endereço de email válido.
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>Senha de acesso:</label>
+            <input type="password" class="form-control" 
+                formControlName="senha"
+                placeholder="Digite sua senha aqui."/>
+            <div class="text-danger" *ngIf="f['senha'].touched && f['senha'].invalid">
+                <span *ngIf="f['senha'].errors && f['senha'].errors['required']">
+                    Por favor, informe a senha do usuário.
+                </span>
+                <span *ngIf="f['senha'].errors && f['senha'].errors['pattern']">
+                    Por favor, informe a senha com letras maiúsculas, letras minúsculas,
+                    números, símbolos e pelo menos 8 caracteres.
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label>Confirme sua senha:</label>
+            <input type="password" class="form-control" 
+                formControlName="senhaConfirmacao"
+                placeholder="Confirme sua senha aqui."/>
+            <div class="text-danger" *ngIf="f['senhaConfirmacao'].touched && f['senhaConfirmacao'].invalid">
+                <span *ngIf="f['senhaConfirmacao'].errors && f['senhaConfirmacao'].errors['required']">
+                    Por favor, confirme a senha do usuário.
+                </span>
+                <span *ngIf="f['senhaConfirmacao'].errors && f['senhaConfirmacao'].errors['matchPassword']">
+                    Senhas não conferem, por favor verifique.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <button class="btn btn-success" [disabled]="form.invalid">
+                Realizar Cadastro
+            </button>
+        </div>
+    </div>
+
+</form>
+

@@ -1,0 +1,40 @@
+<div class="mb-3">
+    <h4>Dashboard principal</h4>
+    <p>Seja bem vindo ao sistema de agenda de tarefas.</p>
+</div>
+
+<div class="container">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div [chart]="graficoColunas"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div [chart]="graficoLinhas"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div [chart]="graficoDonut"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div [chart]="graficoBarras"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

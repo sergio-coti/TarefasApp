@@ -1,0 +1,13 @@
+<div
+  *ngIf="texto"
+  class="alert alert-primary alert-dismissible fade show"
+  role="alert"
+>
+  <strong>{{ texto }}</strong>
+  <button
+    (click)="texto = ''"
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+  ></button>
+</div>

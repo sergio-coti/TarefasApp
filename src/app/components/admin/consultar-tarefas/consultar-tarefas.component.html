@@ -1,0 +1,65 @@
+<div class="mb-3">
+  <h4>Consultar tarefas</h4>
+  <p>Listagem de tarefas cadastradas em sua agenda.</p>
+</div>
+
+<app-messages [texto]="mensagem"/>
+
+<div class="row mb-3">
+  <div class="col-md-4">
+    <input type="text" class="form-control" 
+      placeholder="Pesquise pelo nome da tarefa."
+      [(ngModel)]="filtro"  />
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Nome da tarefa</th>
+        <th>Data</th>
+        <th>Hora</th>
+        <th>Descrição</th>
+        <th>Operações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of tarefas 
+        | filterBy : ['nome'] : this.filtro
+        | paginate : { itemsPerPage: 5, currentPage: paginador }">
+        <td>{{t.nome | uppercase}}</td>
+        <td>{{t.data | date : 'dd/MM/yyyy'}}</td>
+        <td>{{t.hora}}</td>
+        <td>{{t.descricao}}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-primary me-2"
+            [routerLink]="['/admin/editar-tarefas', t.id]">
+            Editar
+          </a>
+          <button class="btn btn-sm btn-outline-danger"
+            (click)="onDelete(t.id)">
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5">
+          Quantidade de tarefas: 
+          {{(tarefas | filterBy : ['nome'] : this.filtro).length}}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="text-center">
+  <!-- Régua de paginação -->
+  <pagination-controls
+      previousLabel="Página anterior"
+      nextLabel="Próxima página"
+      (pageChange)="handlePageChange($event)"
+  />
+</div>
